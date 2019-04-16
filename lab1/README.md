@@ -31,7 +31,11 @@
     |Description|チームプロジェクトの説明を入力します|de:code ハンズオンサンプル|
     |Visibility|チームプロジェクトを外部に公開するかどうかを指定します|Private を選択します|
     |Version control|チームプロジェクトで利用する |Git を選択します|
-    |Work item process|チームプロジェクトで利用するプロセステンプレートを選択します|Agile を選択します|
+    |Work item process|プロセステンプレートを選択します|Agile を選択します|
+
+4. しばらく待つと、チームプロジェクトが作成されます
+
+    ![CreatedTeamProject](./screenshots/ProjectHome.png)
 
 ## 2. リポジトリへコードを Push する
 
