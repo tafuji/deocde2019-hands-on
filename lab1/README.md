@@ -44,10 +44,48 @@
 
         ![Clone to your computer](./screenshots/CloneToYourComputer.png)
 
-   2. リポジトリをクローンするディレクトリを選択します
+   2. リポジトリをクローンするディレクトリを選択し、「複製」ボタンをクリックします
+
+        ![Select your directory](./screenshots/ChooseRepoDirectory.png)
+
+   3. ソリューションを新規作成します
 
 2. Xamarin アプリケーションを作成します
+   1. プロジェクトを新規作成します
+
+        ![New Solution](./screenshots/CreateSolutionInTeamExploter.png)
+
+   2. プロジェクトのフィルタリング
+
+        ![Choose project type](./screenshots/FilterProjectType.png)
+
+   3. Xamarin.Forms プロジェクトを選択
+
+        ![Select Xamarin.Forms project](./screenshots/SelectXamarinFormsProject.png)
+
+   4. プロジェクトの詳細を入力
+
+        ![Input project name](./screenshots/ProjectConfiguration.png)
+
+   5. プロジェクトのテンプレートを選択
+
+        ![Select project template](./screenshots/ChooseProjectTemplate.png)
+
+3. アプリケーションの動作確認
+   1. スタートアッププロジェクトの設定
+
+        ![set the uwp project as the startup project](./screenshots/SetStartupProjectInSolutionExplorer.png)
+
+   2. プロジェクトのデバッグ
+
+        ![set the uwp project as the startup project](./screenshots/SetStartupProjectInSolutionExplorer.png)
+
+   3. 動作確認
+
+
+4. コードをリポジトリへ Push する
 
 ## 3. Azure Pipeline の作成
 
-## 4. ビルド実行
+## 4. Azure Pipeline でアプリケーションをビルドする
+
