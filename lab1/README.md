@@ -37,9 +37,17 @@
 
     ![CreatedTeamProject](./screenshots/ProjectHome.png)
 
-## 2. リポジトリへコードを Push する
+## 2. リポジトリにソースコードを Push する
+
+1. リポジトリをクローンします
+   1. 「Clone in Visual Studio」をクリックします
+
+        ![Clone to your computer](./screenshots/CloneToYourComputer.png)
+
+   2. リポジトリをクローンするディレクトリを選択します
+
+2. Xamarin アプリケーションを作成します
 
 ## 3. Azure Pipeline の作成
-
 
 ## 4. ビルド実行
