@@ -78,12 +78,14 @@
 
    2. プロジェクトのデバッグ
 
-        ![set the uwp project as the startup project](./screenshots/SetStartupProjectInSolutionExplorer.png)
+        ![set the uwp project as the startup project](./screenshots/DebugUWPProject.png)
 
    3. 動作確認
 
 
 4. コードをリポジトリへ Push する
+
+
 
 ## 3. Azure Pipeline の作成
 
