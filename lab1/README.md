@@ -39,19 +39,38 @@
 
 ## 2. リポジトリにソースコードを Push する
 
+ここでは、Azure DevOps 上に作成したチームプロジェクトのリポジトリにアプリケーションのコードを Push します。
+
 1. リポジトリをクローンします
-   1. 「Clone in Visual Studio」をクリックします
+   1. リポジトリのページに移動します
 
-        ![Clone to your computer](./screenshots/CloneToYourComputer.png)
+   2. "add a .gitigonore:None" をクリックして、"Visual Studio" を選択し、"Initialize" ボタンを押します。
 
-   2. リポジトリをクローンするディレクトリを選択し、「複製」ボタンをクリックします
+     ![Select Git Ignore File Type ](./screenshots/SelectGitIgnoreType.png)
+
+   3. リポジトリが初期化されたことを確認してください
+
+     ![Initialized Repository](./screenshots/InitializedRepository.png)
+
+   4. "Clone" をクリックします
+
+        ![Clone](./screenshots/ClickCloneButton.png)
+
+   5. IDE の下にある "Clone in VS Code" の右側にあるボタンを押し、"Visual Studio" を選択します
+
+        ![Clone](./screenshots/IDESelectVisualStudio.png)
+
+   6. Visual Studio を開きます
+
+        ![Open Visual Studio](./screenshots/OpenMsVsSelector.png)
+
+   7. リポジトリをクローンするディレクトリを選択し、「複製」ボタンをクリックします
 
         ![Select your directory](./screenshots/ChooseRepoDirectory.png)
 
-   3. ソリューションを新規作成します
-
 2. Xamarin アプリケーションを作成します
-   1. プロジェクトを新規作成します
+
+   1. ソリューションを新規作成します。
 
         ![New Solution](./screenshots/CreateSolutionInTeamExploter.png)
 
@@ -72,22 +91,45 @@
         ![Select project template](./screenshots/ChooseProjectTemplate.png)
 
 3. アプリケーションの動作確認
+
    1. スタートアッププロジェクトの設定
 
         ![set the uwp project as the startup project](./screenshots/SetStartupProjectInSolutionExplorer.png)
 
    2. プロジェクトのデバッグ
 
-        ![set the uwp project as the startup project](./screenshots/DebugUWPProject.png)
+        ![Start Debugging project](./screenshots/DebugUWPProject.png)
 
    3. 動作確認
 
-
-4. コードをリポジトリへ Push する
-
+4. テスト用証明書の作成
 
 
-## 3. Azure Pipeline の作成
+5. コードをリポジトリへ Push する
+
+## 3. Azure Pipelines で Build を作成する
+
+1. 新しいパイプラインの作成
+   1. New Pipeline をクリックします
+
+        ![New Pipeline](./screenshots/NewPipeline.png)
+
+   2. "Use Classic Editor" をクリック
+
+        ![Classic Editor](./screenshots/UseClassicEditor.png)
+
+
+2. リポジトリを選択
+
+     ![Select Repo](./screenshots/SelectYourRepo.png)
+
+3. ビルド定義のテンプレートで、"Universal Windows Platform" を選択
+
+     ![Select Repo](./screenshots/SelectABuildTemplate.png)
+
+4. ビルド定義の保存
+
+     ![Select Repo](./screenshots/SaveBuildPipeline.png)
 
 ## 4. Azure Pipeline でアプリケーションをビルドする
 
