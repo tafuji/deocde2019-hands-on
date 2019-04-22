@@ -113,15 +113,15 @@
 
 2. リポジトリを選択
 
-     ![Select Repo](./screenshots/SelectYourRepo.png)
+     ![Select Repository](./screenshots/SelectYourRepo.png)
 
 3. ビルド定義のテンプレートで、"Universal Windows Platform" を選択
 
-     ![Select Repo](./screenshots/SelectABuildTemplate.png)
+     ![Select Build Template](./screenshots/SelectABuildTemplate.png)
 
 4. ビルド定義の保存
 
-     ![Select Repo](./screenshots/SaveBuildPipeline.png)
+     ![Select Pipeline](./screenshots/SaveBuildPipeline.png)
 
 ## 4. Azure Pipeline でアプリケーションをビルドする
 
@@ -136,3 +136,6 @@
 3. Azure Pipeline 上でビルドが成功することを確認してください
 
      ![Build Result](./screenshots/BuildResult.png)
+
+## まとめ
+
