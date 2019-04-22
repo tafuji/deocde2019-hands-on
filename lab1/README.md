@@ -6,13 +6,6 @@
 
 - Azure DevOps の Pipeline を利用して、Xamarin アプリケーションのビルドを行う
 
-## 目次
-
-- Azure DevOps でチームプロジェクトを作成する
-- プロジェクトの作成
-- コードをプッシュする
-- Azure Pipeline の作成
-
 ## 1. Azure DevOps でチームプロジェクトを作成する
 
 1. Azure DevOps のサイトにアクセスします
@@ -118,7 +111,6 @@
 
         ![Classic Editor](./screenshots/UseClassicEditor.png)
 
-
 2. リポジトリを選択
 
      ![Select Repo](./screenshots/SelectYourRepo.png)
@@ -133,3 +125,14 @@
 
 ## 4. Azure Pipeline でアプリケーションをビルドする
 
+1. ビルドパイプラインで "Queue" ボタンをクリックします
+
+     ![Queue Build](./screenshots/ClickQueue.png)
+
+2. 設定値はそのままで、"Queue" ボタンをクリックします
+
+     ![Execute Build](./screenshots/ExecuteQueue.png)
+
+3. Azure Pipeline 上でビルドが成功することを確認してください
+
+     ![Build Result](./screenshots/BuildResult.png)
