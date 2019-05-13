@@ -108,7 +108,7 @@
 
         ![Start Debugging project](./screenshots/DebugApp.png)
 
-### 7. テスト用証明書の作成
+### 7. テスト用証明書の作成とインポート
 
 1. パッケージマニフェスト（Package.appmanifest）ファイルを開いて、"パッケージ化" タブを選択し、"証明書の選択" ボタンを押します
 
@@ -118,13 +118,31 @@
 
 ![Select test cert](./screenshots/SelectCert.png)
 
-1. "OK" ボタンを押します
+3. "OK" ボタンを押します
 
 ![Create test cert](./screenshots/CreateTestCert.png)
 
-5. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
+4. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
 
 ![Add Source Repo](./screenshots/AddTestCertToRepo.png)
+
+5. テスト証明書をローカルマシンにインストールします。作成したテスト証明書をエクスプローラー上でダブルクリックします
+
+![Double click pfx file](./screenshots/PfxFileInExplorer.png)
+
+6. ローカルマシンの信頼されたルート証明機関に証明書をインポートします
+
+![LocalComputer](./screenshots/LocalComputer.png)
+
+![FileName](./screenshots/FileName.png)
+
+![NoPassword](./screenshots/NoPassword.png)
+
+![TrustedRoot](./screenshots/TrustedRoot.png)
+
+![Completed](./screenshots/Completed.png)
+
+![Imported](./screenshots/Imported.png)
 
 ### 8. コードをリポジトリへ Push する
 
