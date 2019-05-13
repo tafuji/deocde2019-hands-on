@@ -1,89 +1,100 @@
 # Lab 1: Azure DevOps Pipeline で Xamarin アプリケーションをビルドする
 
-## ここで学習すること
+## 0. Lab 1 で習得できること
 
-ここでは、以下のことを学習します。
+このハンズオンでは、以下のことを学ぶことができます。
 
-- Azure DevOps の Pipeline を利用して、Xamarin アプリケーションのビルドを行う
+1. Azure DevOps でチームプロジェクトを作成する方法
+2. Azure Repos からコードをクローンする方法
+3. Azure Repos にコードをプッシュする方法
+4. Azure Pipelines で Pipeline を作成する方法
+5. Azure Pipelines でアプリをビルドする方法
 
 ## 1. Azure DevOps でチームプロジェクトを作成する
 
-1. Azure DevOps のサイトにアクセスします
+### 1. Azure DevOps のサイトにアクセスします
 
-2. Azure DevOps のサイトで、[Create Project] をクリックします
+### 2. Azure DevOps のサイトで、[Create Project] をクリックします
 
-    ![Create Project](./screenshots/CreateTeamProject.png)
+![Create Project](./screenshots/CreateTeamProject.png)
 
-3. プロジェクト名などを入力します
+### 3. プロジェクト名などを入力します
 
-    ![NewProject](./screenshots/CreateNewProject.png)
+|項目名|説明|例|
+|----|----|----|
+|Project name|チームプロジェクトの名前を入力します|XamarinDemo|
+|Description|チームプロジェクトの説明を入力します|de:code ハンズオンサンプル|
+|Visibility|チームプロジェクトを外部に公開するかどうかを指定します|Private を選択します|
+|Version control|チームプロジェクトで利用する |Git を選択します|
+|Work item process|プロセステンプレートを選択します|Agile を選択します|
 
-    |項目名|説明|例|
-    |----|----|----|
-    |Project name|チームプロジェクトの名前を入力します|XamarinDemo|
-    |Description|チームプロジェクトの説明を入力します|de:code ハンズオンサンプル|
-    |Visibility|チームプロジェクトを外部に公開するかどうかを指定します|Private を選択します|
-    |Version control|チームプロジェクトで利用する |Git を選択します|
-    |Work item process|プロセステンプレートを選択します|Agile を選択します|
+![NewProject](./screenshots/CreateNewProject.png)
 
-4. しばらく待つと、チームプロジェクトが作成されます
+### 4. しばらく待つと、チームプロジェクトが作成されます
 
-    ![CreatedTeamProject](./screenshots/ProjectHome.png)
+![CreatedTeamProject](./screenshots/ProjectHome.png)
 
-## 2. リポジトリにソースコードを Push する
+### まとめ
 
-ここでは、Azure DevOps 上に作成したチームプロジェクトのリポジトリにアプリケーションのコードを Push します。
+ここでは、Azure DevOps にチームプロジェクトを作成する手順を学びました。
 
-1. リポジトリをクローンします
-   1. リポジトリのページに移動します
+## 2. Azure Repos からコードをクローンする
 
-   2. "add a .gitigonore:None" をクリックして、"Visual Studio" を選択し、"Initialize" ボタンを押します。
+### 1. リポジトリのページに移動します
 
-     ![Select Git Ignore File Type ](./screenshots/SelectGitIgnoreType.png)
+### 2. "add a .gitigonore:None" をクリックして、"Visual Studio" を選択し、"Initialize" ボタンを押します
 
-   3. リポジトリが初期化されたことを確認してください
+![Select Git Ignore File Type ](./screenshots/SelectGitIgnoreType.png)
 
-     ![Initialized Repository](./screenshots/InitializedRepository.png)
+### 3. リポジトリが初期化されたことを確認してください
 
-   4. "Clone" をクリックします
+![Initialized Repository](./screenshots/InitializedRepository.png)
 
-        ![Clone](./screenshots/ClickCloneButton.png)
+### 4. "Clone" をクリックします
 
-   5. IDE の下にある "Clone in VS Code" の右側にあるボタンを押し、"Visual Studio" を選択します
+![Clone](./screenshots/ClickCloneButton.png)
 
-        ![Clone](./screenshots/IDESelectVisualStudio.png)
+### 5. IDE の下にある "Clone in VS Code" の右側にあるボタンを押し、"Visual Studio" を選択します
 
-   6. Visual Studio を開きます
+![Clone](./screenshots/IDESelectVisualStudio.png)
 
-        ![Open Visual Studio](./screenshots/OpenMsVsSelector.png)
+### 6. Visual Studio を開きます
 
-   7. リポジトリをクローンするディレクトリを選択し、「複製」ボタンをクリックします
+![Open Visual Studio](./screenshots/OpenMsVsSelector.png)
 
-        ![Select your directory](./screenshots/ChooseRepoDirectory.png)
+### 7. リポジトリをクローンするディレクトリを選択し、「複製」ボタンをクリックします
 
-2. Xamarin アプリケーションを作成します
+![Select your directory](./screenshots/ChooseRepoDirectory.png)
 
-   1. ソリューションを新規作成します。
+## 3. Azure Repos にコードをプッシュする
 
-        ![New Solution](./screenshots/CreateSolutionInTeamExploter.png)
+### 1. ソリューションを新規作成します
 
-   2. プロジェクトのフィルタリング
+![New Solution](./screenshots/CreateSolutionInTeamExploter.png)
 
-        ![Choose project type](./screenshots/FilterProjectType.png)
+### 2. プロジェクトのフィルタリングを行います
 
-   3. Xamarin.Forms プロジェクトを選択
+![Choose project type](./screenshots/FilterProjectType.png)
 
-        ![Select Xamarin.Forms project](./screenshots/SelectXamarinFormsProject.png)
+### 3. Xamarin.Forms プロジェクトを選択します
 
-   4. プロジェクトの詳細を入力
+![Select Xamarin.Forms project](./screenshots/SelectXamarinFormsProject.png)
 
-        ![Input project name](./screenshots/ProjectConfiguration.png)
+### 4. プロジェクトの詳細を入力します
 
-   5. プロジェクトのテンプレートを選択
+![Input project name](./screenshots/ProjectConfiguration.png)
 
-        ![Select project template](./screenshots/ChooseProjectTemplate.png)
+### 5. プロジェクトのテンプレートを選択します
 
-3. アプリケーションの動作確認
+|項目名|説明|
+|----|----|
+|テンプレートの選択|"マスター詳細" を選択します|
+|プラットフォーム|"UWP" にチェックを入れる|
+|モバイルバックエンド|チェックしない|
+
+![Select project template](./screenshots/ChooseProjectTemplate.png)
+
+### 6. アプリケーションの動作確認を行います
 
    1. スタートアッププロジェクトの設定
 
@@ -95,46 +106,110 @@
 
    3. 動作確認
 
-4. テスト用証明書の作成
+        ![Start Debugging project](./screenshots/DebugApp.png)
+
+### 7. テスト用証明書の作成
+
+1. パッケージマニフェスト（Package.appmanifest）ファイルを開いて、"パッケージ化" タブを選択し、"証明書の選択" ボタンを押します
+
+![Open Package Manifest](./screenshots/PackageManifest.png)
+
+2. 証明書の選択で、"テスト証明書" を選択します
+
+![Select test cert](./screenshots/SelectCert.png)
+
+1. "OK" ボタンを押します
+
+![Create test cert](./screenshots/CreateTestCert.png)
+
+5. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
+
+![Add Source Repo](./screenshots/AddTestCertToRepo.png)
+
+### 8. コードをリポジトリへ Push する
+
+1. チームエクスプローラー上で、"変更" を選択します
+
+![Select changes](./screenshots/ChangesInTeamExploter.png)
+
+2. ソースコードなどすべての成果物が、"ステージング済みの変更" に移動していることを確認し、"コメント" を入力して、"ステージング済みをコミット" ボタンを押します
+
+![Commit](./screenshots/FirstCommit.png)
+
+3. ローカルでのコミットが完了したら、"同期" のリンクをクリックします
+
+![Sync](./screenshots/FirstSync.png)
+
+4. 同期画面が表示されるので、"同期" のリンクをクリックします
+
+![Push](./screenshots/FirstSyncExec.png)
+
+5. Azure DevOps 上にコードが Push されます
+
+![Push result](./screenshots/SyncExecuted.png)
+
+## 4. Azure Pipelines で Pipeline を作成する
+
+### 1. 新しいパイプラインの作成
+
+### 2. New Pipeline をクリックします
+
+![New Pipeline](./screenshots/NewPipeline.png)
+
+### 3. "Use Classic Editor" をクリック
+
+![Classic Editor](./screenshots/UseClassicEditor.png)
+
+### 4. リポジトリを選択して、"Continue" ボタンをクリックします
+
+|項目名|説明|値|
+|----|----|----|
+|Select a source|ソースコードのリポジトリの種類を選択します|ここでは、"Azure Repos Git" を選択します|
+|Team project|pipeline を作成するチームプロジェクトを選択します|作成したチームプロジェクトを選択します（ハンズオンの例では、"XamarinDemo" を選択します）|
+|Repository|ソースコードのリポジトリ名を選択します|ハンズオンの例では、"XamarinDemo" を選択します|
+|Default branch for manual and scheduled builds|Pipeline でビルドを行う既定のブランチを選択します|master|
 
 
-5. コードをリポジトリへ Push する
+![Select Repository](./screenshots/SelectYourRepo.png)
 
-## 3. Azure Pipelines で Build を作成する
+### 5. ビルド定義のテンプレートで、"Universal Windows Platform" を選択し、"Apply" ボタンを押します
 
-1. 新しいパイプラインの作成
-   1. New Pipeline をクリックします
+![Select Build Template](./screenshots/SelectABuildTemplate.png)
 
-        ![New Pipeline](./screenshots/NewPipeline.png)
+### 6. ビルド定義が作成されることを確認し、ビルド定義を保存します
 
-   2. "Use Classic Editor" をクリック
+ビルド定義が作成されたことを確認して、"Save & Queue" のタブをクリックして、"Save" をクリックします。
 
-        ![Classic Editor](./screenshots/UseClassicEditor.png)
+![Created build definition](./screenshots/CreatedBuildDefinition.png)
 
-2. リポジトリを選択
+### 7. ビルド定義の保存
 
-     ![Select Repository](./screenshots/SelectYourRepo.png)
+コメントを入力し、"Save" ボタンを押します。
 
-3. ビルド定義のテンプレートで、"Universal Windows Platform" を選択
+![Select Pipeline](./screenshots/SaveBuildPipeline.png)
 
-     ![Select Build Template](./screenshots/SelectABuildTemplate.png)
+## 5. Azure Pipelines でアプリをビルドする
 
-4. ビルド定義の保存
+### 1. ビルドパイプラインで "Queue" ボタンをクリックします
 
-     ![Select Pipeline](./screenshots/SaveBuildPipeline.png)
+![Queue Build](./screenshots/ClickQueue.png)
 
-## 4. Azure Pipeline でアプリケーションをビルドする
+### 2. 設定値はそのままで、"Queue" ボタンをクリックします
 
-1. ビルドパイプラインで "Queue" ボタンをクリックします
+![Execute Build](./screenshots/ExecuteQueue.png)
 
-     ![Queue Build](./screenshots/ClickQueue.png)
+### 3. ビルドが開始されたことを確認します
 
-2. 設定値はそのままで、"Queue" ボタンをクリックします
+ビルドが開始されると、ビルド番号のリンクが表示されます。そのリンクをクリックします。
 
-     ![Execute Build](./screenshots/ExecuteQueue.png)
+![Click build number](./screenshots/QueuedBuild.png)
 
-3. Azure Pipeline 上でビルドが成功することを確認してください
+リンクをクリックすると、ビルド中のタスク状況が表示されます。
 
-     ![Build Result](./screenshots/BuildResult.png)
+![Click build number](./screenshots/ExecutingBuild.png)
 
-## まとめ
+### 4. Azure Pipeline 上でビルドが成功することを確認してください
+
+![Build Result](./screenshots/BuildResult.png)
+
+以上で、ハンズオンの Lab 1 は終了です。
