@@ -46,6 +46,8 @@
 
 ### 2.1 リポジトリのページに移動します
 
+![Repo](./screenshots/Repopage.png)
+
 ### 2.2 "add a .gitigonore:None" をクリックして、"Visual Studio" を選択し、"Initialize" ボタンを押します
 
 ![Select Git Ignore File Type ](./screenshots/SelectGitIgnoreType.png)
