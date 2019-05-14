@@ -1,4 +1,4 @@
-# Lab 1: Azure DevOps Pipeline で Xamarin アプリケーションをビルドする
+# Lab 1: Azure DevOps Pipeline による Xamarin アプリのビルド
 
 ## 0. Lab 1 で習得できること
 
@@ -13,6 +13,14 @@
 ## 1. Azure DevOps でチームプロジェクトを作成する
 
 ### 1. Azure DevOps のサイトにアクセスします
+
+以下のサイトで、Azure DevOps にサインインしてください。
+
+- [Azure DevOps](https://dev.azure.com)
+
+"Sign in to Azure DevOps" をクリックして、Azure DevOps にサインインしてください。
+
+![Sign in](./screenshots/SignInAzureDevOps.png)
 
 ### 2. Azure DevOps のサイトで、[Create Project] をクリックします
 
@@ -33,10 +41,6 @@
 ### 4. しばらく待つと、チームプロジェクトが作成されます
 
 ![CreatedTeamProject](./screenshots/ProjectHome.png)
-
-### まとめ
-
-ここでは、Azure DevOps にチームプロジェクトを作成する手順を学びました。
 
 ## 2. Azure Repos からコードをクローンする
 
