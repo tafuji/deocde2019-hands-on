@@ -7,3 +7,7 @@
 3. [Lab 3: Visual Studio App Center の SDK を利用したアプリの診断・解析](./lab3/README.md)
 
 ## バージョン履歴
+
+|Date|Version|
+|---|---|
+|May 14, 2019|1.0|
