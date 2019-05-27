@@ -116,41 +116,112 @@
 
 ### 3.6.7 テスト用証明書の作成とインポート
 
+1. 管理者権限で、PowerShell を起動します。
+
+    ![PowerShell](./screenshots/StartPowerShell.png)
+
+2. UWP プロジェクトのディレクトリに移動します
+
+    ハンズオンの例のように既定のディレクトリにプロジェクトを作成した場合は、以下のディレクトリになります。
+
+    ```path
+    C:\Users\[user name]\source\repos\SampleApp\SampleApp\SampleApp.UWP
+    ```
+
+    ![CD](./screenshots/ChangeDirectory.png)
+
+3. 以下のコマンドを入力して、証明書を作成します
+
+    ```powershell
+    New-SelfSignedCertificate -Type Custom -Subject "CN=Decode2019.AzureDevOps.Xamarin.Demo" -KeyUsage DigitalSignature -FriendlyName "XamarinDemo" -CertStoreLocation "Cert:\CurrentUser\My" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
+    ```
+
+    作成に成功すると、証明書の Thumbprint と Subject が以下の例のように表示されます。
+
+    ![Cert](./screenshots/New-SelfSignedCert.png)
+
+4. 以下のコマンドを入力して、証明書をエクスポートするためのパスワードを作成します
+
+    ```powershell
+    $password = ConvertTo-SecureString -String "Password1!" -Force -AsPlainText
+    ```
+
+    ![create password](./screenshots/CreatedPassword.png)
+
+5. 証明書をエクスポートします
+   
+    ```<Certificate Thumbprint>``` の部分に、証明書が作成されたときの Thumbprint をコピーペーストし、```<FilePath>.pfx``` に証明書のファイル名（ここでは、```SampleApp.UWP.pfx```）を指定して、以下の PowerShell コマンドを実行します。
+
+    ```powershell
+    Export-PfxCertificate -cert "Cert:\CurrentUser\My\<Certificate Thumbprint>" -FilePath <FilePath>.pfx -Password $password
+    ```
+
+    ![Exported Cert](./screenshots/ExportedCert.png)
+
+6. UWP プロジェクトのディレクトリ内に、証明書が作成されたことを確認します
+
+    ![private key password](./screenshots/PfxFile.png)
+
+7. 作成された証明書のファイル（pfx ファイル）をダブルクリックします
+
+8. 証明書のインポートウィザーが起動するので、"ローカルコンピュータ" を選択します
+
+    ![LocalComputer](./screenshots/LocalComputer.png)
+
+9. "次へ" をクリックします
+
+    ![FileName](./screenshots/FileName.png)
+
+10. 証明書をエクスポートするときに指定したパスワード（この例では、"Password1!"）を入力して、"次へ" をクリックします
+
+    ![Password](./screenshots/Password.png)
+
+11. "証明書をすべて次のストアに配置する" では、"信頼されたルート証明機関" を選択して、"次へ" をクリックしてください
+
+    ![TrustedRoot](./screenshots/TrustedRoot.png)
+
+12. 証明書のインポートウィザードの完了で、"完了" をクリックしてください
+
+    ![Completed](./screenshots/Completed.png)
+
+13. 証明書が正しくインポートされたら、"OK" をクリックします
+
+    ![Imported](./screenshots/Imported.png)
+
+### 3.6.8 UWP アプリの証明書の設定
+
 1. パッケージマニフェスト（Package.appmanifest）ファイルを開いて、"パッケージ化" タブを選択し、"証明書の選択" ボタンを押します
 
-![Open Package Manifest](./screenshots/PackageManifest.png)
+    ![Open Package Manifest](./screenshots/PackageManifest.png)
 
 2. 証明書の選択で、"テスト証明書" を選択します
 
-![Select test cert](./screenshots/SelectCert.png)
+    ![Select test cert](./screenshots/SelectCert.png)
 
-4. "OK" ボタンを押します
+4. 作成したテスト用の証明書が表示されていることを確認して、"OK" ボタンを押します
 
-![Create test cert](./screenshots/CreateTestCert.png)
+    ![Create test cert](./screenshots/SelectTestCert.png)
 
-5. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
+5. "OK" をクリックします
+
+    ![Create test cert](./screenshots/ConfirmCert.png)
+
+6. "Package.appxmanifest" ファイルを保存してください
+
+7. ソリューションエクスプローラーで、"すべてのファイルを表示" ボタンをクリックし、証明書を表示します
+
+    ![Show All Files](./screenshots/ShowAllFiles.png)
+
+8. ソリューションエクスプローラーで、証明書ファイルを右クリックし、コンテキストメニューから、"プロジェクトに含める" を選択してください
+
+    ![Include Project](./screenshots/IncludeProject.png)
+
+9. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
 
 ![Add Source Repo](./screenshots/AddTestCertToRepo.png)
 
-6. テスト証明書をローカルマシンにインストールします。作成したテスト証明書をエクスプローラー上でダブルクリックします
 
-![Double click pfx file](./screenshots/PfxFileInExplorer.png)
-
-7. ローカルマシンの信頼されたルート証明機関に証明書をインポートします
-
-![LocalComputer](./screenshots/LocalComputer.png)
-
-![FileName](./screenshots/FileName.png)
-
-![NoPassword](./screenshots/NoPassword.png)
-
-![TrustedRoot](./screenshots/TrustedRoot.png)
-
-![Completed](./screenshots/Completed.png)
-
-![Imported](./screenshots/Imported.png)
-
-### 3.6.8 コードをリポジトリへ Push する
+### 3.6.9 コードをリポジトリへ Push する
 
 1. チームエクスプローラー上で、"変更" を選択します
 
