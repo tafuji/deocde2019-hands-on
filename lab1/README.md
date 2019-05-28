@@ -149,7 +149,7 @@
     ![create password](./screenshots/CreatedPassword.png)
 
 5. 証明書をエクスポートします
-   
+
     ```<Certificate Thumbprint>``` の部分に、証明書が作成されたときの Thumbprint をコピーペーストし、```<FilePath>.pfx``` に証明書のファイル名（ここでは、```SampleApp.UWP.pfx```）を指定して、以下の PowerShell コマンドを実行します。
 
     ```powershell
@@ -220,7 +220,6 @@
 
 ![Add Source Repo](./screenshots/AddTestCertToRepo.png)
 
-
 ### 3.6.9 コードをリポジトリへ Push する
 
 1. チームエクスプローラー上で、"変更" を選択します
@@ -272,17 +271,79 @@
 
 ![Select Build Template](./screenshots/SelectABuildTemplate.png)
 
-### 4.6 ビルド定義が作成されることを確認し、ビルド定義を保存します
+### 4.6 証明書をインポートする PowerShell タスクを追加する
 
-ビルド定義が作成されたことを確認して、"Save & Queue" のタブをクリックして、"Save" をクリックします。
+#### 4.6.1 タスクの追加
 
-![Created build definition](./screenshots/CreatedBuildDefinition.png)
+"Agent job 1" と表示されたジョブの右側にある "+" ボタンをクリックします
 
-### 4.7 ビルド定義の保存
+![Add Build Task](./screenshots/AddBuildTask.png)
 
-コメントを入力し、"Save" ボタンを押します。
+#### 4.6.2 PowerShell タスクの選択と追加
 
-![Select Pipeline](./screenshots/SaveBuildPipeline.png)
+"Add tasks" に表示されたタスクリストの中から、PowerShell タスクを選択し、"Add" ボタンをクリックします。（検索ボックスに、"Power" と入力するとすばやくタスクを探すことができます）
+
+![Add PowerShell Task](./screenshots/AddPowerShellTask.png)
+
+#### 4.6.3 タスクの移動
+
+追加された PowerShell タスクをドラッグアンドドロップで、"Build solution **\\*.sln" の上に移動します
+
+![Move Task](./screenshots/MoveTask.png)
+
+タスクが正しく移動されたことを確認してください
+
+![Moved Task](./screenshots/MovedTask.png)
+
+#### 4.6.4 PowerShell タスクを編集します
+
+1. タスクの種類の選択
+
+    "Type" の欄で、"Inline" を選択します。
+
+    ![PowerShell Inline](./screenshots/PowerShellTypeInline.png)
+
+2. "# Use the environment variables input below to pass secret variables to this script." の次の行から以下のスクリプトを追加してください
+
+    ![PowerShell Inline](./screenshots/AddInlineScript.png)
+
+    ```powershell
+    $pfxpath = 'SampleApp.UWP.pfx'
+    $password = 'Password1!'
+
+    Add-Type -AssemblyName System.Security
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $cert.Import($pfxpath, $password, [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]"PersistKeySet")
+    $store = new-object system.security.cryptography.X509Certificates.X509Store -argumentlist "MY", CurrentUser
+    $store.Open([System.Security.Cryptography.X509Certificates.OpenFlags]"ReadWrite")
+    $store.Add($cert)
+    $store.Close()
+    ```
+
+    |変数名|説明|値|
+    |----|----|----|
+    |```$pfxpath```|作成した証明書のファイル名を指定します|SampleApp.UWP.pfx|
+    |```$password```|証明書をエクスポートするときに指定したパスワード|Password1!
+
+3. スクリプトを実行するフォルダを指定します
+
+    "Advanced" の隣にあるマークをクリックすると、設定項目が表示されますので、"Working Directory" のテキストボックスの隣の "…" をクリックしてください
+
+    ![Open Advanced](./screenshots/OpenAdvancedSetting.png)
+
+    "Select path" の画面の中で、"SampleApp.UWP" フォルダ（pfx ファイルを作成したパス）を選択してください
+
+    ![Select path](./screenshots/SelectWorkingDirectory.png)
+
+### 4.7 ビルド定義を保存します
+
+1. "Save & Queue" のタブをクリックして、"Save" をクリックします。
+
+    ![Created build definition](./screenshots/SelectSaveAndQueue.png)
+
+2. コメントを入力し、"Save" ボタンを押します。
+
+    ![Select Pipeline](./screenshots/SaveBuildPipeline.png)
 
 ## 5. Azure Pipelines でアプリをビルドする
 
