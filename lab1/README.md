@@ -194,7 +194,7 @@
 
     ![Open Package Manifest](./screenshots/PackageManifest.png)
 
-2. 証明書の選択で、"テスト証明書" を選択します
+2. "証明書の選択" をクリックします
 
     ![Select test cert](./screenshots/SelectCert.png)
 
