@@ -4,11 +4,11 @@
 
 このハンズオンでは、以下のことを学ぶことができます。
 
-1. Azure DevOps でチームプロジェクトを作成する方法
-2. Azure Repos からコードをクローンする方法
-3. Azure Repos にコードをプッシュする方法
-4. Azure Pipelines で Pipeline を作成する方法
-5. Azure Pipelines でアプリをビルドする方法
+- Azure DevOps でチームプロジェクトを作成する方法
+- Azure Repos からコードをクローンする方法
+- Azure Repos にコードをプッシュする方法
+- Azure Pipelines で Pipeline を作成する方法
+- Azure Pipelines でアプリをビルドする方法
 
 ## 1. Azure DevOps でチームプロジェクトを作成する
 
