@@ -315,9 +315,11 @@
 
     ![PowerShell Inline](./screenshots/PowerShellTypeInline.png)
 
-2. "# Use the environment variables input below to pass secret variables to this script." の次の行から以下のスクリプトを追加してください
+2. "# Use the environment variables input below to pass secret variables to this script." の次の行以降に、証明書をインポートするスクリプトを追加してください。
 
     ![PowerShell Inline](./screenshots/AddInlineScript.png)
+
+    以下のスクリプトを追加してください
 
     ```powershell
     $pfxpath = 'SampleApp.UWP.pfx'
