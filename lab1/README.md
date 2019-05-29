@@ -204,49 +204,53 @@
 
     ![Select test cert](./screenshots/SelectCert.png)
 
-4. 作成したテスト用の証明書が表示されていることを確認して、"OK" ボタンを押します
+3. 作成したテスト用の証明書が表示されていることを確認して、"OK" ボタンを押します
 
     ![Create test cert](./screenshots/SelectTestCert.png)
 
-5. "OK" をクリックします
+4. "OK" をクリックします
 
     ![Create test cert](./screenshots/ConfirmCert.png)
 
-6. "Package.appxmanifest" ファイルを保存してください
+5. "Package.appxmanifest" ファイルを保存してください
 
-7. ソリューションエクスプローラーで、"すべてのファイルを表示" ボタンをクリックし、証明書を表示します
+6. ソリューションエクスプローラーで、"すべてのファイルを表示" ボタンをクリックし、証明書を表示します
 
     ![Show All Files](./screenshots/ShowAllFiles.png)
 
-8. ソリューションエクスプローラーで、証明書ファイルを右クリックし、コンテキストメニューから、"プロジェクトに含める" を選択してください
+7. ソリューションエクスプローラーで、証明書ファイルを右クリックし、コンテキストメニューから、"プロジェクトに含める" を選択してください
 
     ![Include Project](./screenshots/IncludeProject.png)
 
-9. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
+8. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
 
-![Add Source Repo](./screenshots/AddTestCertToRepo.png)
+    ![Add Source Repo](./screenshots/AddTestCertToRepo.png)
 
 ### 3.6.9 コードをリポジトリへ Push する
 
 1. チームエクスプローラー上で、"変更" を選択します
 
-![Select changes](./screenshots/ChangesInTeamExploter.png)
+    ![Select changes](./screenshots/ChangesInTeamExploter.png)
 
-2. ソースコードなどすべての成果物が、"ステージング済みの変更" に移動していることを確認し、"コメント" を入力して、"ステージング済みをコミット" ボタンを押します
+2. "変更" をすべて "ステージング済みの変更" に移動させます。"変更" の中に表示されている最上位のフォルダを右クリックして、コンテキストメニューで "ステージ" を選択してください。（ソリューションの保存ダイアログが表示された場合は、ソリューションを保存してください。）
 
-![Commit](./screenshots/FirstCommit.png)
+    ![Staging](./screenshots/StageChanges.png)
 
-3. ローカルでのコミットが完了したら、"同期" のリンクをクリックします
+3. ソースコードなどすべての成果物が、"ステージング済みの変更" に移動していることを確認し、"コメント" を入力して、"ステージング済みをコミット" ボタンを押します
 
-![Sync](./screenshots/FirstSync.png)
+    ![Commit](./screenshots/FirstCommit.png)
 
-4. 同期画面が表示されるので、"同期" のリンクをクリックします
+4. ローカルでのコミットが完了したら、"同期" のリンクをクリックします
 
-![Push](./screenshots/FirstSyncExec.png)
+    ![Sync](./screenshots/FirstSync.png)
 
-5. Azure DevOps 上にコードが Push されます
+5. 同期画面が表示されるので、"同期" のリンクをクリックします
 
-![Push result](./screenshots/SyncExecuted.png)
+    ![Push](./screenshots/FirstSyncExec.png)
+
+6. Azure DevOps 上にコードが Push されます
+
+    ![Push result](./screenshots/SyncExecuted.png)
 
 ## 4. Azure Pipelines でビルド定義を作成する
 
@@ -361,9 +365,11 @@ Azure DevOps 上にビルド定義が作成されたので、アプリケーシ�
 
 ![Queue Build](./screenshots/ClickQueue.png)
 
-### 5.2 設定値はそのままで、"Queue" ボタンをクリックします
+### 5.2 "BuildPlatform" の値を "x86" に変更して、"Queue" ボタンをクリックします
 
 ![Execute Build](./screenshots/ExecuteQueue.png)
+
+"BuildPlatform" の値は、既定値でもビルドはできますが、ビルドに時間がかかります。今回は、ハンズオンを効率的に行うために、"x86" プラットフォームでビルドを行ってください。
 
 ### 5.3 ビルドが開始されたことを確認します
 
