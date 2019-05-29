@@ -4,13 +4,15 @@
 
 このハンズオンでは、以下のことを学ぶことができます。
 
-1. Azure DevOps でチームプロジェクトを作成する方法
-2. Azure Repos からコードをクローンする方法
-3. Azure Repos にコードをプッシュする方法
-4. Azure Pipelines で Pipeline を作成する方法
-5. Azure Pipelines でアプリをビルドする方法
+- Azure DevOps でチームプロジェクトを作成する方法
+- Azure Repos からコードをクローンする方法
+- Azure Repos にコードをプッシュする方法
+- Azure Pipelines で Pipeline を作成する方法
+- Azure Pipelines でアプリをビルドする方法
 
 ## 1. Azure DevOps でチームプロジェクトを作成する
+
+ここでは、Azure DevOps 上に、チームで作業を行うためのチームプロジェクト（チームでソースコード、タスク、バグ、アプリのビルド、リリース作業などを行うための作業場所）を作成します。
 
 ### 1.1 Azure DevOps のサイトにアクセスします
 
@@ -44,6 +46,8 @@
 
 ## 2. Azure Repos からコードをクローンする
 
+ここでは、「1. Azure DevOps でチームプロジェクトを作成する」で作成したチームプロジェクトにある、ソースコードのリポジトリをローカルの PC にクローンします。
+
 ### 2.1 リポジトリのページに移動します
 
 ![Repo](./screenshots/Repopage.png)
@@ -76,17 +80,25 @@
 
 ### 3.1 ソリューションを新規作成します
 
+"ソリューション" で、"新規作成..." をクリックします。
+
 ![New Solution](./screenshots/CreateSolutionInTeamExploter.png)
 
 ### 3.2 プロジェクトのフィルタリングを行います
+
+"プロジェクトタイプ" で、"モバイル" を選択して、"次へ" をクリックしてください。
 
 ![Choose project type](./screenshots/FilterProjectType.png)
 
 ### 3.3 Xamarin.Forms プロジェクトを選択します
 
+"モバイル アプリ (Xamarin.Forms)" を選択して、"次へ" をクリックしてください。
+
 ![Select Xamarin.Forms project](./screenshots/SelectXamarinFormsProject.png)
 
 ### 3.4 プロジェクトの詳細を入力します
+
+"プロジェクト名" に "SampleApp" と入力し、"作成" ボタンをクリックしてください。
 
 ![Input project name](./screenshots/ProjectConfiguration.png)
 
@@ -118,61 +130,83 @@
 
 1. パッケージマニフェスト（Package.appmanifest）ファイルを開いて、"パッケージ化" タブを選択し、"証明書の選択" ボタンを押します
 
-![Open Package Manifest](./screenshots/PackageManifest.png)
+    ![Open Package Manifest](./screenshots/PackageManifest.png)
 
-2. 証明書の選択で、"テスト証明書" を選択します
+2. "証明書の選択" ウィンドウで、"テスト証明書" を選択します
 
-![Select test cert](./screenshots/SelectCert.png)
+    ![Select test cert](./screenshots/SelectCert.png)
 
-4. "OK" ボタンを押します
+4. そのまま "OK" ボタンを押します
 
-![Create test cert](./screenshots/CreateTestCert.png)
+    ![Create test cert](./screenshots/CreateTestCert.png)
 
-5. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
+5. "証明書の選択" ウィンドウで、"OK" をクリックします
 
-![Add Source Repo](./screenshots/AddTestCertToRepo.png)
+    ![Confirm Cert](./screenshots/SelectCertResult.png)
 
-6. テスト証明書をローカルマシンにインストールします。作成したテスト証明書をエクスプローラー上でダブルクリックします
+6. "Package.appxmanifest" ファイルを保存してください
 
-![Double click pfx file](./screenshots/PfxFileInExplorer.png)
+7. テスト証明書をソース管理に追加します。作成された pfx ファイルを右クリックし、"無視されたファイルをソース管理に追加" を選択します
 
-7. ローカルマシンの信頼されたルート証明機関に証明書をインポートします
+    ![Add Source Repo](./screenshots/AddTestCertToRepo.png)
 
-![LocalComputer](./screenshots/LocalComputer.png)
+8. テスト証明書をローカルマシンにインストールします。作成したテスト証明書をエクスプローラー上でダブルクリックします
 
-![FileName](./screenshots/FileName.png)
+    ![Double click pfx file](./screenshots/PfxFileInExplorer.png)
 
-![NoPassword](./screenshots/NoPassword.png)
+9. 証明書のインポートウィザーが起動するので、"ローカルコンピュータ" を選択します
 
-![TrustedRoot](./screenshots/TrustedRoot.png)
+    ![LocalComputer](./screenshots/LocalComputer.png)
 
-![Completed](./screenshots/Completed.png)
+10. "次へ" をクリックします
 
-![Imported](./screenshots/Imported.png)
+    ![FileName](./screenshots/FileName.png)
+
+11. "次へ" をクリックします
+
+    ![NoPassword](./screenshots/NoPassword.png)
+
+12. "証明書をすべて次のストアに配置する" をチェックして、"信頼されたルート証明機関" を選択して、"次へ" をクリックしてください
+
+    ![TrustedRoot](./screenshots/TrustedRoot.png)
+
+13. "完了" をクリックします
+
+    ![Completed](./screenshots/Completed.png)
+
+14. "OK" をクリックします
+
+    ![Imported](./screenshots/Imported.png)
 
 ### 3.6.8 コードをリポジトリへ Push する
 
 1. チームエクスプローラー上で、"変更" を選択します
 
-![Select changes](./screenshots/ChangesInTeamExploter.png)
+    ![Select changes](./screenshots/ChangesInTeamExploter.png)
 
-2. ソースコードなどすべての成果物が、"ステージング済みの変更" に移動していることを確認し、"コメント" を入力して、"ステージング済みをコミット" ボタンを押します
+2. "変更" をすべて "ステージング済みの変更" に移動させます。"変更" の中に表示されている最上位のフォルダを右クリックして、コンテキストメニューで "ステージ" を選択してください。（ソリューションの保存ダイアログが表示された場合は、ソリューションを保存してください。）
 
-![Commit](./screenshots/FirstCommit.png)
+    ![Stage](./screenshots/StageChanges.png)
 
-3. ローカルでのコミットが完了したら、"同期" のリンクをクリックします
+3. ソースコードなどすべての成果物が、"ステージング済みの変更" に移動していることを確認し、"コメント" を入力して、"ステージング済みをコミット" ボタンを押します
 
-![Sync](./screenshots/FirstSync.png)
+    ![Commit](./screenshots/FirstCommit.png)
 
-4. 同期画面が表示されるので、"同期" のリンクをクリックします
+4. ローカルでのコミットが完了したら、"同期" のリンクをクリックします
 
-![Push](./screenshots/FirstSyncExec.png)
+    ![Sync](./screenshots/FirstSync.png)
 
-5. Azure DevOps 上にコードが Push されます
+5. 同期画面が表示されるので、"同期" のリンクをクリックします
 
-![Push result](./screenshots/SyncExecuted.png)
+    ![Push](./screenshots/FirstSyncExec.png)
+
+6. Azure DevOps 上にコードが Push されます
+
+    ![Push result](./screenshots/SyncExecuted.png)
 
 ## 4. Azure Pipelines でビルド定義を作成する
+
+「3. Azure Repos にコードをプッシュする」で、チームプロジェクトにソースコードが登録されました。ここからは、作成したアプリケーションのビルドを行うために Azure DevOps の Pipeline にビルド定義を作成します。
 
 ### 4.1 Azure DevOps の Pipelines のページにアクセスします
 
@@ -201,7 +235,7 @@
 
 ![Select Build Template](./screenshots/SelectABuildTemplate.png)
 
-### 4.6 ビルド定義が作成されることを確認し、ビルド定義を保存します
+### 4.6 ビルド定義が作成されたことを確認し、ビルド定義を保存します
 
 ビルド定義が作成されたことを確認して、"Save & Queue" のタブをクリックして、"Save" をクリックします。
 
@@ -219,9 +253,11 @@
 
 ![Queue Build](./screenshots/ClickQueue.png)
 
-### 5.2 設定値はそのままで、"Queue" ボタンをクリックします
+### 5.2 "BuildPlatform" の値を "x86" に変更して、"Queue" ボタンをクリックします
 
 ![Execute Build](./screenshots/ExecuteQueue.png)
+
+"BuildPlatform" の値は、既定値でもビルドはできますが、ビルドに時間がかかります。今回は、ハンズオンを効率的に行うために、"x86" プラットフォームでビルドを行ってください。
 
 ### 5.3 ビルドが開始されたことを確認します
 
@@ -233,7 +269,7 @@
 
 ![Click build number](./screenshots/ExecutingBuild.png)
 
-### 5.4 Azure Pipeline 上でビルドが成功することを確認してください
+### 5.4 Azure Pipeline 上でビルドが成功したことを確認してください
 
 ![Build Result](./screenshots/BuildResult.png)
 
