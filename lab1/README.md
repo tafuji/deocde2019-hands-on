@@ -12,6 +12,8 @@
 
 ## 1. Azure DevOps でチームプロジェクトを作成する
 
+ここでは、Azure DevOps 上に、チームで作業を行うために、チームプロジェクト（チームでソースコード、タスク、バグ、アプリのビルド、リリース作業などを行うための作業場所）を作成します。
+
 ### 1.1 Azure DevOps のサイトにアクセスします
 
 以下のサイトで、Azure DevOps にサインインしてください。
@@ -44,6 +46,8 @@
 
 ## 2. Azure Repos からコードをクローンする
 
+ここでは、「1. Azure DevOps でチームプロジェクトを作成する」で作成したチームプロジェクトにある、ソースコードのリポジトリをローカルの PC にクローンします。
+
 ### 2.1 リポジトリのページに移動します
 
 ![Repo](./screenshots/Repopage.png)
@@ -73,6 +77,8 @@
 ![Select your directory](./screenshots/ChooseRepoDirectory.png)
 
 ## 3. Azure Repos にコードをプッシュする
+
+ここでは、サンプル用のアプリケーションを作成し、チームプロジェクトのリポジトリにソースコードをプッシュします。
 
 ### 3.1 ソリューションを新規作成します
 
@@ -244,6 +250,8 @@
 
 ## 4. Azure Pipelines でビルド定義を作成する
 
+「3. Azure Repos にコードをプッシュする」で、チームプロジェクトにソースコードが登録されました。ここからは、作成したアプリケーションのビルドを行うために Azure DevOps の Pipeline にビルド定義を作成します。
+
 ### 4.1 Azure DevOps の Pipelines のページにアクセスします
 
 ![New Pipeline](./screenshots/Pipelines.png)
@@ -346,6 +354,8 @@
     ![Select Pipeline](./screenshots/SaveBuildPipeline.png)
 
 ## 5. Azure Pipelines でアプリをビルドする
+
+Azure DevOps 上にビルド定義が作成されたので、アプリケーションをクラウド上でビルドする準備ができました。ここからば、先ほどの作業で作成したビルド定義を使って、クラウド上（Azure DevOps 上）でアプリケーションをビルドします。
 
 ### 5.1 ビルドパイプラインで "Queue" ボタンをクリックします
 
