@@ -9,7 +9,7 @@ de:code 2019 の「[Azure DevOps と Visual Studio App Center で体験する Xa
 - 開発用 PC
   - Visual Studio 2019 16.0.4
 - Azure DevOps のアカウント
-- Visual Studio App Center
+- Visual Studio App Center のアカウント
 
 Azure DevOps、Visual Studio App Center のアカウントは、以下のサイトから作成することができます。
 
